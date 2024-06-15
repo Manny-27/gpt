@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background: #f0f0f0;
+            display: grid;
+            place-content: center;
+            height: 100dvh;
+        }
+
+        main {
+            width: 500px;
+            max-width: 100%;
+            height: 70vh;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            margin-bottom: 16px;
+
+            overflow: auto;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0%;
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 4px 0;
+            padding: 4px 8px;
+
+            > span {
+                width: 36px;
+                height: 36px;
+                background: #eee;
+                font-size: 12px;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+            }
+
+            p {
+                border-radius: 4px;
+                padding: 4px 8px;
+                margin-top: 8px;
+            }
+
+            &.user {
+                align-self: flex-end;
+                align-items: flex-end;
+                span, p {
+                    background: #9dbbfb;
+                }
+            }
+
+            &.bot {
+                align-self: flex-start;
+                span, p{
+                    background: #fbc1c1;
+                }
+            }
+        }
+        form {
+            display: flex;
+
+            input {
+                border-radius: 999999px;
+                flex-grow: 1;
+                border: 0;
+                padding: 8px;
+                margin-right: 8px;
+                border: 1px solid #ccc;
+            }
+
+            button {
+                background: #09f;
+                border: 0;
+                color: #fff;
+                border-radius: 6px;
+                cursor: pointer;
+                padding: 8px;
+                transition: background .3s ease;
+
+                &:hover {
+                    background: rgb(4, 98, 161);
+                }
+            }
+        }
+        </style>
+</head>
+<body>
+    <main>
+        <ul>
+            <li class="message bot">
+                <span>gpt</span>
+                <p>Esta es la respuesta del bot</>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="message user">
+                <span>Tu</span>
+                <p>Esta es la respuesta del usuario</p>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="message user">
+                <span>Tu</span>
+                <p>Esta es la respuesta del usuario, esta es una respuesta mas  larga para ver que nada se rompa</p>
+            </li>
+        </ul>
+        
+    </main>
+
+    <form>
+        <input placeholder="Escribe tu mensaje aqui">
+        <button>Enviar</button>
+    </form>
+
+    <template id="message-template">
+        <li class="message">
+            <span></span>
+            <p></p>
+        </li>
+    </template>
+</body>
+</html>
