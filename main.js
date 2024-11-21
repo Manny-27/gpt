@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="/img/rengo2.png" type="image/x-icon">
-  <title>RengoChat Local 100% privado, gratis y maravilloso</title>
-
-  <script type="module">
     /* 
     en el vídeo usamos "https://esm.run/@mlc-ai/web-llm"
     el problema es que eso siempre es la versión más reciente
@@ -44,7 +33,7 @@
             end = true
             $loading?.parentNode?.removeChild($loading)
             $button.removeAttribute('disabled')
-            addMessage("¡Hola! Soy un RengoChat que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?", 'bot')
+            addMessage("¡Hola! Soy un ChatGPT que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?", 'bot')
             $input.focus()
           }
         }
@@ -103,7 +92,7 @@
       const $text = $newMessage.querySelector('p')
 
       $text.textContent = text
-      $who.textContent = sender === 'bot' ? 'RengoChat' : 'Tú'
+      $who.textContent = sender === 'bot' ? 'GPT' : 'Tú'
       $newMessage.classList.add(sender)
 
       $messages.appendChild($newMessage)
@@ -112,36 +101,3 @@
 
       return $text
     }
-  </script>
-</head>
-
-<body>
-  <header class="header">
-    <h1>RengoChat</h1>
-  </header>
-  <main>
-    <ul>
-      <li class="loading">
-        <i></i>
-        <h4>Cargando...</h4>
-        <h5>Esto puede tardar un poco. Paciencia.</h5>
-      </li>
-    </ul>
-  </main>
-
-  <form>
-    <input placeholder="Escribe tu mensaje aquí...">
-    <button disabled>Enviar</button>
-  </form>
-
-  <small>&nbsp;</small>
-
-  <template id="message-template">
-    <li class="message">
-      <span></span>
-      <p></p>
-    </li>
-  </template>
-</body>
-
-</html>
