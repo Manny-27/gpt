@@ -1,8 +1,6 @@
     /* 
-    en el vídeo usamos "https://esm.run/@mlc-ai/web-llm"
-    el problema es que eso siempre es la versión más reciente
-    en el código usamos https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm
-    para fijar la versión */
+    usamos "https://esm.run/@mlc-ai/web-llm"
+    en el código usamos https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm*/
     import { CreateWebWorkerMLCEngine } from "https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm"
 
     const $ = el => document.querySelector(el)
