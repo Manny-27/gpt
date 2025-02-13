@@ -4,10 +4,15 @@
       background: #212121;
       display: grid;
       place-content: center;
-      height: 100dvh;
+      height: 95dvh;
     }
 
     .header {
+      display: flex;
+      background: #374151;
+      border-radius: 20px; 
+      padding: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
       h1 {
         color: #ffffff;
@@ -15,14 +20,10 @@
     }
 
     main {
-      width: 600px;
+      width: 700px;
       max-width: 100%;
       height: 70vh;
 
-      background: #2f2f2f;
-      border: 1px solid 676767;
-      border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 8px;
       margin-bottom: 16px;
 
@@ -65,69 +66,93 @@
         align-self: flex-end;
         align-items: flex-end;
 
-        span,
+        span{
+          background: #374151;
+          color: white;
+        }
+
         p {
-          background: rgb(219, 236, 255);
+          background: #212121;
+          color: white;
         }
       }
 
       &.bot {
         align-self: flex-start;
 
-        span,
+        span{
+          background: #374151;
+          color: white;
+        }
+
         p {
-          background: rgb(198, 255, 220);
+          background: #212121;
+          color: white;
         }
       }
     }
 
     form {
       display: flex;
-      background: #2f2f2f;
-      border-radius: 999999px;
+      background: #374151; /* Un tono más suave y moderno */
+      border-radius: 9999px; /* Bordes redondeados */
       padding: 8px;
-      
-
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+      transition: background 0.3s ease; /* Transición suave */
+    
+      &:hover {
+        background: #4b5563; /* Cambio de color al pasar el mouse */
+      }
+    
       input {
-        border-radius: 999999px;
+        border: none; /* Elimina el borde por defecto */
+        border-radius: 9999px; /* Bordes redondeados */
         flex-grow: 1;
-        /* border: 0; */
-        padding: 8px;
+        padding: 8px 16px; /* Más padding horizontal */
         margin-right: 8px;
-        background: #2f2f2f;
-        color: #ffffff;
-        
+        background: transparent; /* Fondo transparente */
+        color: #ffffff; /* Texto blanco */
+        font-size: 14px; /* Tamaño de fuente */
+        transition: background 0.3s ease; /* Transición suave */
+    
         &::placeholder {
-          color: #ffffff; 
-          opacity: 0.7; 
+          color: #d1d5db; /* Color del placeholder más suave */
+          opacity: 0.7;
         }
-
+    
         &:focus {
-          outline: none; 
+          outline: none;
+          background: rgba(255, 255, 255, 0.1); /* Fondo sutil al enfocar */
         }
       }
-
-
+    
       button {
-        background: #9b9b9b;
-        border: 0;
+        background: #6b7280; /* Color más moderno */
+        border: none;
         color: white;
-        border-radius: 6px;
+        border-radius: 9999px; /* Bordes redondeados */
         cursor: pointer;
-        padding: 8px;
-        transition: background .3s ease;
-
+        padding: 8px 16px; /* Más padding horizontal */
+        font-size: 14px; /* Tamaño de fuente */
+        transition: background 0.3s ease, transform 0.2s ease; /* Transición suave */
+    
         &[disabled] {
-          background: #ccc;
-          opacity: .6;
+          background: #9ca3af; /* Color más claro cuando está deshabilitado */
+          opacity: 0.7;
           pointer-events: none;
         }
-
+    
         &:hover {
-          background: #374151;
+          background: #4b5563; /* Cambio de color al pasar el mouse */
+          transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+        }
+    
+        &:active {
+          transform: scale(0.95); /* Efecto de clic */
         }
       }
     }
+    
 
     small {
       font-size: 10px;

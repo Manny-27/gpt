@@ -1,0 +1,24 @@
+/* Estilos para la barra de scroll en navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de scroll (más delgado) */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Fondo transparente */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #6b7280; /* Color del pulgar (thumb) */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background 0.3s ease; /* Transición suave */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4b5563; /* Cambio de color al pasar el mouse */
+  }
+  
+  /* Estilos para Firefox */
+  html {
+    scrollbar-width: thin; /* Ancho de la barra de scroll */
+    scrollbar-color: #6b7280 transparent; /* Color del pulgar y fondo transparente */
+  }
