@@ -177,7 +177,7 @@
     #new-chat-btn:active {
       transform: scale(0.95); /* Efecto de clic */
     }
-    
+
     small {
       font-size: 10px;
       color: #ffffff;
@@ -228,3 +228,14 @@
         transform: rotate(360deg)
       }
     }
+
+    @keyframes glow {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    
+    .loading-animation {
+      animation: glow 1s infinite ease-in-out;
+    }
+    

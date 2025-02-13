@@ -1,5 +1,8 @@
 import { CreateWebWorkerMLCEngine } from "https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm";
 
+import { startLoadingAnimation, stopLoadingAnimation } from "./loadingAnimation.js";
+
+
 const $ = (el) => document.querySelector(el);
 
 // Elementos del DOM
@@ -23,15 +26,10 @@ function saveMessages() {
   localStorage.setItem("chatMessages", JSON.stringify(messages));
 }
 
-// Habilitar el botón de enviar cuando el usuario escribe algo
-$input.addEventListener("input", () => {
-  $button.disabled = !$input.value.trim();
-});
-
 // Cargar mensajes previos al iniciar la página
 function loadMessages() {
   messages.forEach(({ content, role }) => addMessage(content, role));
-  scrollToBottom();
+  scrollToBottom(); // Mueve el scroll al final tras cargar mensajes previos
 }
 
 // Inicializar el modelo
@@ -46,6 +44,7 @@ const engine = await CreateWebWorkerMLCEngine(
         $loading?.parentNode?.removeChild($loading);
         $button.removeAttribute("disabled");
 
+        // Si no hay mensajes previos, muestra el mensaje de bienvenida
         if (messages.length === 0) {
           addMessage(
             "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
@@ -73,7 +72,7 @@ $form.addEventListener("submit", async (event) => {
     saveMessages();
   }
 
-  $button.disabled = true; // Deshabilita el botón mientras se genera la respuesta
+  $button.setAttribute("disabled", "");
 
   const chunks = await engine.chat.completions.create({
     messages,
@@ -90,13 +89,14 @@ $form.addEventListener("submit", async (event) => {
     $botMessage.textContent = reply;
     scrollToBottom();
   }
-
-  $button.disabled = false; // Habilita el botón después de la respuesta del bot
-  $input.focus();
-
+  const $who = $botMessage.closest(".message").querySelector("span");
+  startLoadingAnimation($who);
+  $button.removeAttribute("disabled");
   messages.push({ role: "assistant", content: reply });
   saveMessages();
   scrollToBottom();
+  stopLoadingAnimation($who);
+
 });
 
 // Función para añadir mensajes al chat
@@ -111,9 +111,11 @@ function addMessage(text, sender) {
   $who.textContent = sender === "bot" ? "GPT" : "Tú";
   $newMessage.classList.add(sender);
 
-  $text.style.color = "#ffffff"; // Asegurar que el texto es blanco
+  // Aplicar color de texto blanco
+  $text.style.color = "#ffffff";
 
   $messages.appendChild($newMessage);
+
   scrollToBottom();
 
   return $text;
@@ -126,23 +128,30 @@ function scrollToBottom() {
 
 // Función para reiniciar el chat
 function resetChat() {
+  // Borrar el localStorage
   localStorage.removeItem("chatMessages");
-  messages = [];
+  messages = []; // Limpiar el array de mensajes
+
+  // Limpiar la lista de mensajes en pantalla
   $messages.innerHTML = "";
 
+  // Mostrar el mensaje de bienvenida
   addMessage(
     "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
     "bot"
   );
 
+  // Guardar el mensaje de bienvenida en el localStorage
   messages.push({
     role: "assistant",
     content: "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
   });
-
   saveMessages();
 
-  $button.disabled = false; // Habilita el botón al iniciar un nuevo chat
+  // Habilitar el botón de enviar
+  $button.removeAttribute("disabled");
+
+  // Enfocar el input
   $input.focus();
 }
 
