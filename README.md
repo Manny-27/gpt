@@ -1,6 +1,6 @@
 # RengokuChat 🔥
 
-![Logo o banner del proyecto](https://imgur.com/a/dxRFwV2) <!-- Reemplaza con la URL de tu imagen -->
+![Logo o banner del proyecto](https://res.cloudinary.com/dhitmcx07/image/upload/v1739568452/bv8pdjy7dzdfvd5z9xjy.png) <!-- Reemplaza con la URL de tu imagen -->
 
 RengokuChat es un chatbot impulsado por IA que se ejecuta completamente en tu navegador. Utiliza modelos de lenguaje avanzados para ofrecer respuestas rápidas y precisas sin necesidad de conexión a servidores externos. ¡Diseñado para ser ligero, eficiente y fácil de usar!
 
