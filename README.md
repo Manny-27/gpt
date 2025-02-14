@@ -1,4 +1,4 @@
-# RengokuChat 🔥
+# RengokuChat
 
 ![Logo o banner del proyecto](https://res.cloudinary.com/dhitmcx07/image/upload/v1739568452/bv8pdjy7dzdfvd5z9xjy.png) <!-- Reemplaza con la URL de tu imagen -->
 
@@ -18,13 +18,13 @@ RengokuChat es un chatbot impulsado por IA que se ejecuta completamente en tu na
 
 ## Capturas de pantalla 📸
 
-![Interfaz principal](https://via.placeholder.com/800x400) <!-- Reemplaza con la URL de tu imagen -->
+![Interfaz principal](https://res.cloudinary.com/dhitmcx07/image/upload/v1739568453/pzlp8kyf4krmqafgva8e.png) <!-- Reemplaza con la URL de tu imagen -->
 
 *Interfaz principal de RengokuChat.*
 
 ---
 
-![Conversación de ejemplo](https://via.placeholder.com/800x400) <!-- Reemplaza con la URL de tu imagen -->
+![Conversación de ejemplo](https://res.cloudinary.com/dhitmcx07/image/upload/v1739568453/cjbse5udc7vea9hyicm7.png) <!-- Reemplaza con la URL de tu imagen -->
 
 *Ejemplo de una conversación con el chatbot.*
 
@@ -42,5 +42,6 @@ No es necesario instalar dependencias adicionales, ya que RengokuChat funciona d
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tuusuario/rengoku-chat.git
-   cd rengoku-chat
+   git clone https://github.com/Manny-27/gpt.git
+   cd gpt
+   Abre el proyecto con live server u otra alternativa que tengas.
