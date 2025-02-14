@@ -47,7 +47,7 @@ const engine = await CreateWebWorkerMLCEngine(
         // Si no hay mensajes previos, muestra el mensaje de bienvenida
         if (messages.length === 0) {
           addMessage(
-            "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
+            "¡Hola! Soy RengoChat, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
             "bot"
           );
         }
@@ -137,14 +137,14 @@ function resetChat() {
 
   // Mostrar el mensaje de bienvenida
   addMessage(
-    "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
+    "¡Hola! Soy RengoChat, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
     "bot"
   );
 
   // Guardar el mensaje de bienvenida en el localStorage
   messages.push({
     role: "assistant",
-    content: "¡Hola! Soy GPT, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
+    content: "¡Hola! Soy RengoChat, un asistente de IA que se ejecuta completamente en tu navegador. ¿En qué puedo ayudarte hoy?",
   });
   saveMessages();
 
